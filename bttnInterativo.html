@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #teste {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            height: 50px;
+
+        }
+
+        input#enviar {
+            cursor: pointer;
+            transition: .3s;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input#enviar:hover {
+            background-color: rgba(.1, .1, .1, 0.5);
+            cursor: pointer;
+            transition: .3s;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+    <title>Testes JS</title>
+</head>
+
+<body>
+    <h1>Eventos de clique</h1>
+    <div id="teste">
+        <label for="Digite senha sugerida">Digite "senha"</label>
+        <input type="text" name="senha" placeholder="Senha" id="senha">
+        <input type="submit" value="Enviar" id="enviar"></input>
+    </div>
+    <p id="surpresa"></p>
+
+    <script>
+
+        var btn = document.querySelector('#enviar');//enviar para confirmação
+
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();//impedir que a página reinicie
+
+            var nome = document.querySelector('#senha');//tornando a senha um objeto
+            var value = nome.value;//conseguindo o valor da senha
+            console.log(value)
+
+            var p = document.querySelector('p#surpresa')//lugar onde vai estar saindo a mensagem
+
+            if (value == 'senha') {
+                p.innerHTML = 'Acertou em cheio seu miserável'//resposta correta
+            } else {
+                p.innerHTML = 'Você ainda tem muito a aprender'//resposta errada
+            }
+
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>
